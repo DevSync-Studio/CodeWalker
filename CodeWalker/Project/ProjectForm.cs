@@ -1,4 +1,4 @@
-﻿using CodeWalker.GameFiles;
+using CodeWalker.GameFiles;
 using CodeWalker.Project.Panels;
 using CodeWalker.Properties;
 using CodeWalker.Utils;

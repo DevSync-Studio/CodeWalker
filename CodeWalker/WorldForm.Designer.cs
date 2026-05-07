@@ -1,4 +1,4 @@
-﻿using CodeWalker.WinForms;
+using CodeWalker.WinForms;
 
 namespace CodeWalker
 {
