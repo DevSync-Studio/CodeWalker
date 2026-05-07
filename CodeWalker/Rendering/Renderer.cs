@@ -93,6 +93,9 @@ namespace CodeWalker.Rendering
         public Dictionary<uint, YmapEntityDef> HideEntities = new Dictionary<uint, YmapEntityDef>();//dictionary of entities to hide, for cutscenes to use 
 
         public bool ShowScriptedYmaps = true;
+        public bool ShowCayoPerico = true;
+        public bool ShowNorthYankton = true;
+        public bool ShowGTAVMap = true;
         public List<YmapFile> VisibleYmaps = new List<YmapFile>();
         public List<YmapEntityDef> VisibleMlos = new List<YmapEntityDef>();
 
@@ -1873,6 +1876,9 @@ namespace CodeWalker.Rendering
             LodManager.MapViewEnabled = MapViewEnabled;
             LodManager.MapViewDist = camera.OrthographicSize / MapViewDetail;
             LodManager.ShowScriptedYmaps = ShowScriptedYmaps;
+            LodManager.ShowCayoPerico = ShowCayoPerico;
+            LodManager.ShowNorthYankton = ShowNorthYankton;
+            LodManager.ShowGTAVMap = ShowGTAVMap;
             LodManager.LODLightsEnabled = renderlodlights;
             LodManager.HDLightsEnabled = renderlights;
             LodManager.Update(renderworldVisibleYmapDict, camera, currentElapsedTime);
@@ -4021,6 +4027,9 @@ namespace CodeWalker.Rendering
         public bool MapViewEnabled = false;
         public float MapViewDist = 1.0f;
         public bool ShowScriptedYmaps = true;
+        public bool ShowCayoPerico = true;
+        public bool ShowNorthYankton = true;
+        public bool ShowGTAVMap = true;
         public bool HDLightsEnabled = true;
         public bool LODLightsEnabled = true;
 
@@ -4064,6 +4073,17 @@ namespace CodeWalker.Rendering
                 if (!ymaps.TryGetValue(kvp.Key, out ymap) || (ymap != kvp.Value) || (ymap.IsScripted && !ShowScriptedYmaps) || (ymap.LodManagerUpdate))
                 {
                     RemoveYmaps.Add(kvp.Key);
+                    continue;
+                }
+
+                string yname = ymap.Name ?? "";
+                bool isCayoPerico = yname.StartsWith("h4_") || yname.Contains("heist_island");
+                bool isNorthYankton = yname.StartsWith("prologue") || yname.Contains("heist_yankton");
+                bool isGTAVMap = !isCayoPerico && !isNorthYankton;
+
+                if ((!ShowCayoPerico && isCayoPerico) || (!ShowNorthYankton && isNorthYankton) || (!ShowGTAVMap && isGTAVMap))
+                {
+                    RemoveYmaps.Add(kvp.Key);
                 }
             }
             foreach (var remYmap in RemoveYmaps)
@@ -4101,6 +4121,18 @@ namespace CodeWalker.Rendering
             {
                 var ymap = kvp.Value;
                 if (ymap.IsScripted && !ShowScriptedYmaps)
+                { continue; }
+
+                string yname = ymap.Name ?? "";
+                bool isCayoPerico = yname.StartsWith("h4_") || yname.Contains("heist_island");
+                bool isNorthYankton = yname.StartsWith("prologue") || yname.Contains("heist_yankton");
+                bool isGTAVMap = !isCayoPerico && !isNorthYankton;
+
+                if (!ShowCayoPerico && isCayoPerico)
+                { continue; }
+                if (!ShowNorthYankton && isNorthYankton)
+                { continue; }
+                if (!ShowGTAVMap && isGTAVMap)
                 { continue; }
                 if ((ymap._CMapData.parent != 0) && (ymap.Parent == null)) //skip adding ymaps until parents are available
                 { continue; }
