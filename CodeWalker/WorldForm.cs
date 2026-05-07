@@ -7330,6 +7330,21 @@ namespace CodeWalker
             worldymapweatherfilter = WorldYmapWeatherFilterCheckBox.Checked;
         }
 
+        private void EnableCayoPericoCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Renderer.ShowCayoPerico = EnableCayoPericoCheckBox.Checked;
+        }
+
+        private void EnableNorthYanktonCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Renderer.ShowNorthYankton = EnableNorthYanktonCheckBox.Checked;
+        }
+
+        private void EnableGTAVMapCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            Renderer.ShowGTAVMap = EnableGTAVMapCheckBox.Checked;
+        }
+
         private void EnableModsCheckBox_CheckedChanged(object sender, EventArgs e)
         {
             if (!initialised) return;

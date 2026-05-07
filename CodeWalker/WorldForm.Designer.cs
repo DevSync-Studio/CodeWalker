@@ -48,6 +48,9 @@ namespace CodeWalker
             this.ViewTabControl = new System.Windows.Forms.TabControl();
             this.ViewWorldTabPage = new System.Windows.Forms.TabPage();
             this.EnableModsCheckBox = new System.Windows.Forms.CheckBox();
+            this.EnableCayoPericoCheckBox = new System.Windows.Forms.CheckBox();
+            this.EnableNorthYanktonCheckBox = new System.Windows.Forms.CheckBox();
+            this.EnableGTAVMapCheckBox = new System.Windows.Forms.CheckBox();
             this.label30 = new System.Windows.Forms.Label();
             this.DlcLevelComboBox = new System.Windows.Forms.ComboBox();
             this.EnableDlcCheckBox = new System.Windows.Forms.CheckBox();
@@ -566,6 +569,9 @@ namespace CodeWalker
             // ViewWorldTabPage
             // 
             this.ViewWorldTabPage.Controls.Add(this.EnableModsCheckBox);
+            this.ViewWorldTabPage.Controls.Add(this.EnableCayoPericoCheckBox);
+            this.ViewWorldTabPage.Controls.Add(this.EnableNorthYanktonCheckBox);
+            this.ViewWorldTabPage.Controls.Add(this.EnableGTAVMapCheckBox);
             this.ViewWorldTabPage.Controls.Add(this.label30);
             this.ViewWorldTabPage.Controls.Add(this.DlcLevelComboBox);
             this.ViewWorldTabPage.Controls.Add(this.EnableDlcCheckBox);
@@ -592,7 +598,7 @@ namespace CodeWalker
             // 
             this.EnableModsCheckBox.AutoSize = true;
             this.EnableModsCheckBox.Enabled = false;
-            this.EnableModsCheckBox.Location = new System.Drawing.Point(6, 280);
+            this.EnableModsCheckBox.Location = new System.Drawing.Point(6, 369);
             this.EnableModsCheckBox.Name = "EnableModsCheckBox";
             this.EnableModsCheckBox.Size = new System.Drawing.Size(88, 17);
             this.EnableModsCheckBox.TabIndex = 68;
@@ -603,7 +609,7 @@ namespace CodeWalker
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(1, 337);
+            this.label30.Location = new System.Drawing.Point(1, 426);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(60, 13);
             this.label30.TabIndex = 70;
@@ -616,7 +622,7 @@ namespace CodeWalker
             this.DlcLevelComboBox.FormattingEnabled = true;
             this.DlcLevelComboBox.Items.AddRange(new object[] {
             "<Loading...>"});
-            this.DlcLevelComboBox.Location = new System.Drawing.Point(62, 334);
+            this.DlcLevelComboBox.Location = new System.Drawing.Point(62, 423);
             this.DlcLevelComboBox.Name = "DlcLevelComboBox";
             this.DlcLevelComboBox.Size = new System.Drawing.Size(126, 21);
             this.DlcLevelComboBox.TabIndex = 70;
@@ -627,7 +633,7 @@ namespace CodeWalker
             // 
             this.EnableDlcCheckBox.AutoSize = true;
             this.EnableDlcCheckBox.Enabled = false;
-            this.EnableDlcCheckBox.Location = new System.Drawing.Point(6, 311);
+            this.EnableDlcCheckBox.Location = new System.Drawing.Point(6, 400);
             this.EnableDlcCheckBox.Name = "EnableDlcCheckBox";
             this.EnableDlcCheckBox.Size = new System.Drawing.Size(83, 17);
             this.EnableDlcCheckBox.TabIndex = 69;
@@ -647,6 +653,45 @@ namespace CodeWalker
             this.WorldYmapWeatherFilterCheckBox.Text = "Filter ymaps by weather";
             this.WorldYmapWeatherFilterCheckBox.UseVisualStyleBackColor = true;
             this.WorldYmapWeatherFilterCheckBox.CheckedChanged += new System.EventHandler(this.WorldYmapWeatherFilterCheckBox_CheckedChanged);
+            // 
+            // EnableCayoPericoCheckBox
+            // 
+            this.EnableCayoPericoCheckBox.AutoSize = true;
+            this.EnableCayoPericoCheckBox.Checked = true;
+            this.EnableCayoPericoCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.EnableCayoPericoCheckBox.Location = new System.Drawing.Point(6, 280);
+            this.EnableCayoPericoCheckBox.Name = "EnableCayoPericoCheckBox";
+            this.EnableCayoPericoCheckBox.Size = new System.Drawing.Size(126, 17);
+            this.EnableCayoPericoCheckBox.TabIndex = 68;
+            this.EnableCayoPericoCheckBox.Text = "Display Cayo Perico Map";
+            this.EnableCayoPericoCheckBox.UseVisualStyleBackColor = true;
+            this.EnableCayoPericoCheckBox.CheckedChanged += new System.EventHandler(this.EnableCayoPericoCheckBox_CheckedChanged);
+            // 
+            // EnableNorthYanktonCheckBox
+            // 
+            this.EnableNorthYanktonCheckBox.AutoSize = true;
+            this.EnableNorthYanktonCheckBox.Checked = true;
+            this.EnableNorthYanktonCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.EnableNorthYanktonCheckBox.Location = new System.Drawing.Point(6, 303);
+            this.EnableNorthYanktonCheckBox.Name = "EnableNorthYanktonCheckBox";
+            this.EnableNorthYanktonCheckBox.Size = new System.Drawing.Size(126, 17);
+            this.EnableNorthYanktonCheckBox.TabIndex = 69;
+            this.EnableNorthYanktonCheckBox.Text = "Display North Yankton Map";
+            this.EnableNorthYanktonCheckBox.UseVisualStyleBackColor = true;
+            this.EnableNorthYanktonCheckBox.CheckedChanged += new System.EventHandler(this.EnableNorthYanktonCheckBox_CheckedChanged);
+            // 
+            // EnableGTAVMapCheckBox
+            // 
+            this.EnableGTAVMapCheckBox.AutoSize = true;
+            this.EnableGTAVMapCheckBox.Checked = true;
+            this.EnableGTAVMapCheckBox.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.EnableGTAVMapCheckBox.Location = new System.Drawing.Point(6, 326);
+            this.EnableGTAVMapCheckBox.Name = "EnableGTAVMapCheckBox";
+            this.EnableGTAVMapCheckBox.Size = new System.Drawing.Size(126, 17);
+            this.EnableGTAVMapCheckBox.TabIndex = 70;
+            this.EnableGTAVMapCheckBox.Text = "Display Main Map";
+            this.EnableGTAVMapCheckBox.UseVisualStyleBackColor = true;
+            this.EnableGTAVMapCheckBox.CheckedChanged += new System.EventHandler(this.EnableGTAVMapCheckBox_CheckedChanged);
             // 
             // WorldYmapTimeFilterCheckBox
             // 
@@ -3901,6 +3946,9 @@ namespace CodeWalker
         private System.Windows.Forms.TabPage SelectionExtensionTabPage;
         private ReadOnlyPropertyGrid SelExtensionPropertyGrid;
         private System.Windows.Forms.CheckBox EnableModsCheckBox;
+        private System.Windows.Forms.CheckBox EnableCayoPericoCheckBox;
+        private System.Windows.Forms.CheckBox EnableNorthYanktonCheckBox;
+        private System.Windows.Forms.CheckBox EnableGTAVMapCheckBox;
         private System.Windows.Forms.Button AdvancedSettingsButton;
         private System.Windows.Forms.Button ControlSettingsButton;
         private System.Windows.Forms.ToolStripMenuItem ToolsMenuOptions;
